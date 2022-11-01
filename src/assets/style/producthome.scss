@@ -1,0 +1,132 @@
+
+
+
+
+.product {
+    display: flex;
+    flex-direction: column;
+    .title-product {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        
+    }
+    .banner {
+        height: 450px;
+        object-fit: cover;
+        
+    }
+    
+}
+.container-product {
+    display: flex;
+   
+}
+.list-product {
+    display: flex;
+    gap: 90px;
+    flex-direction: row;
+    margin: 30px  auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+
+    .image {
+        width: 170px;
+        height: 200px;
+        // border: solid 1px;
+        // border-radius: 5px;
+        display: block;
+        margin: 30px auto;
+    }
+   
+      
+      
+    .all-product {
+        display: flex;
+        flex-direction: column;
+        
+        cursor: pointer;
+        // border: solid 1px black;
+        
+        text-decoration: none;
+        border-radius: 10px;
+        
+
+    }
+    .all-product:hover {
+        transform: scale(1.05) ;
+        background-color: #eeee;
+        transition: filter .6s,opacity .6s,transform .6s,box-shadow .3s,-webkit-filter .6s,-webkit-transform .6s,-webkit-box-shadow .3s;
+        
+    }
+    .title {
+        font-weight: 500;
+        margin-top: 0px;
+        width: 250px;
+        color: #8d8d8d;
+        overflow: hidden;
+        margin-left: 10px;
+    }
+    .title:hover {
+        color: black;
+    }
+    .rate {
+        display: flex;
+        margin-left: 10px;
+        
+       color: gold;
+        font-size: 15px;
+    }
+    .rate-count {
+        color: black ;
+        font-weight: 500;
+        font-size: 17px;
+    }
+    .fa-solid {
+        // color:rgb(239, 239, 22);
+        
+        margin: 5px 3px 8px;}
+
+    
+    .price {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-left: 10px;
+        color: black;
+    }
+    .img {
+        
+        position: relative;
+         
+        .overlay {
+            position: absolute; 
+            bottom: 30%;
+            left: 10%;
+            background: rgb(89, 37, 233);
+            background: rgb(148, 9, 9); /* Black see-through */
+            color: #f1f1f1; 
+            width: 80%;
+            height: 50px;
+            transition: .5s ease;
+            opacity:0;
+            color: white;
+            font-size: 20px;
+            padding: 7px;
+            text-align: center;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            
+          }
+          &.img:hover .overlay {
+            opacity: 1;
+          }
+            
+    }
+   
+        
+
+}
+

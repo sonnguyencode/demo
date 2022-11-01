@@ -1,0 +1,48 @@
+.footer {
+    padding: 70px 0;
+    background-color: rgb(22, 35,55);
+    
+    font-size: 1.1rem;
+    & .grid {
+        display: grid;
+        grid-template-columns: 400px 300px 300px 300px;
+        margin-left: 125px;
+
+       
+    }
+    &
+        
+
+    &__logo {
+        height: 88px;
+    }
+
+    &__about {
+        p {
+            margin-bottom: 2rem;
+            color:white;
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    &__content {
+        p {
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+    }
+    & .link-footer {
+        text-decoration: none;
+        color :white;
+        font-family: serif;
+
+    }
+    
+}
+
