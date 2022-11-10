@@ -9,16 +9,22 @@ import  ProductDetail  from "./components/product/ProductDetail";
 import Form from "./components/form/Form"
 import ScrollToTop from "./components/navigate/ScollToTop";
 import Cart from "./components/cart/Cart"
+import { Blog } from "./components/blog/Blog";
+import Header from "./components/header/Header";
+import Footer from "./FooterPage/Footer";
 
 export default function App() {
   return (
     <div className="app">
-      {/* <ScrollToTop> */}
+      <Header/>
+      
       <Routes>
-        {/* <ScrollToTop/> */}
+        
         
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Form/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/blog" element={<Blog/>}/>
        
         <Route path="/product" element={<ProductPage />}>
           <Route index  element={<MenClothing/>}/>
@@ -27,7 +33,7 @@ export default function App() {
           <Route path="/product/accessories" element={<Jewelery />} />
           <Route path="/product/electronic" element={<Electronic/>} />
           <Route path="/product/:id" element={<ProductDetail/>}/>
-          <Route path="/product/cart" element={<Cart/>}/>
+         
           
          
         </Route>
@@ -35,7 +41,7 @@ export default function App() {
         
         
       </Routes>
-      {/* </ScrollToTop> */}
+      <Footer/>
     </div>
   );
 }

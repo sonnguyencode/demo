@@ -41,7 +41,66 @@
                 padding: 10px;
                 font-size: 20px;
                 cursor: pointer;
+                color: black;
             }
+        }
+        .quantity-cart {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: yellow;
+            display: flex;
+            justify-content: center;
+            align-content: space-around;
+            align-items: center;
+            position: absolute;
+            top: 40px;
+            right: 30px;
+        }
+ @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+
+
+form {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.pseudo-search {
+  display: inline;
+  border: 2px solid #ccc;
+  border-radius: 100px;
+  padding: 7px 15px;
+  transition: background-color 0.5 ease-in-out;
+
+  input {
+    border: 0;
+    background-color: transparent;
+    width: 200px;
+
+    &:focus {
+      // Unsure how to fix this...
+      outline: none;
+    }
+  }
+  
+  button, i {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  select {
+    border: none;
+  }
+
+}
+        .cart-quantity {
+           
+            font-size: 13px;
+            
+            color: firebrick;
+            border-radius: 5px;
         }
         .login {
             text-decoration: none;
@@ -53,6 +112,7 @@
                 border-radius: 5px;
                 line-height: 15px;
             }
+
             
     
 

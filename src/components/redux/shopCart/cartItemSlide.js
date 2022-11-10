@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cart from '../../cart/Cart';
 const initialState ={
-    cartItems : [],
+    cartItems : localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem
+        ("cartItems")) :[],
     cartQuantity:0,
-    cartTotalAmount :0,
+   
 }
 const cartSlide = createSlice({
     name: "cart",
@@ -10,17 +12,57 @@ const cartSlide = createSlice({
     reducers :{
         
         addToCart (state,action){
-            console.log("1233",action)
+            // console.log("1233",action)
             const itemIndex =state.cartItems.findIndex(
-                (item)=>item.id === action.payload.id
+                (item)=>item.id === action.payload.id,
+
             );
-            if (itemIndex>= 0){
-                state.cartItems[itemIndex].cartQuantity +=1;
+
+            if (itemIndex >= 0){
+                state.cartItems[itemIndex].quantity +=1;
             }else {
                 const temProduct ={...action.payload, cartQuantity :1}
                 state.cartItems.push(temProduct);
             }
-        }
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
+        },
+        changeProduct: (state, action) => {
+            const indexProduct = state.findIndex(
+              (data) => data.id === action.payload.id
+            );
+            if (indexProduct) {
+              state[indexProduct] = { ...state[indexProduct], ...action.payload };
+            }
+          },
+          removeProduct: (state, action) => {
+            const indexProduct = state.cartItems.filter(
+              (item) => item.id !== action.payload.id
+            );
+            state.cartItems=indexProduct;
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems))
+        },
+        getTotals(state, action){
+            let {total,quantity}= state.cartItems.reduce(
+                (cartTotal,cartItem)=>{
+                    const {price,cartQuantity}=cartItem;
+                    
+                    const itemTotal=price * cartQuantity;
+
+                    cartTotal.total += itemTotal;
+                    cartTotal.quantity += cartQuantity;
+
+                    return cartTotal;
+                },
+                {total:0,
+                quantity:0,}
+                
+            ) ;
+            state.cartQuantity=quantity;
+            
+                },
+           
+            
+        
     }
 })
     
@@ -35,49 +77,5 @@ const cartSlide = createSlice({
 
 
 
-// export const {addToCart}=cartSlide.actions;
+export const {addToCart,removeProduct,changeProduct,getTotals}=cartSlide.actions;
 export default cartSlide;
-//     name: 'cart',
-//     initialState :{
-//         showCart :false,
-//         cartItems:[],
-//     },
-//     reducers :{
-//         showCart(state) {
-//             state.showCart = true;
-//         },
-//         hideCart (state){
-//             state.showCart=false;
-//         },
-//         addToCart(state,action) {
-//             const newItem =action.payload;
-//             const index =state.cartItems.findIndex((x)=> x.id === newItem.id);
-//             if (index >= 0 ){
-//                 state.cartItems[index].quantity += newItem.quantity;
-//             }else {
-//                 state.cartItems.push(newItem)
-//             }
-
-
-//         },
-//         setQuantity(state,action){
-//             const {id,quantity}=action.payload;
-//             const index=state.cartItems.findIndex((x)=>x.id===id);
-//             if (index >= 0){
-//                 state.cartItems[index].quantity=quantity;
-//             }
-//         },
-//         removeCart (state,action){
-//             const idNeedToRemove =action.payload;
-//             state.cartItems=state.cartItems.filter((x)=>x.id !== idNeedToRemove)
-
-//         },
-//     }
-   
-
-
-    
-// })
-// const {actions, reducer}=cartSlide;
-// export const {showCart, hideCart, addToCart, setQuantity,removeCart }=cartSlide.actions;
-// export default reducer;

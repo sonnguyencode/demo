@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { combineReducers } from "redux";
-import userReducer from '../reducers';
+import authSlide from "../authSlide"
 import cartSlide from '../shopCart/cartItemSlide';
 
 
@@ -10,7 +10,8 @@ import cartSlide from '../shopCart/cartItemSlide';
 const store=configureStore ({
     reducer:{
         cart:cartSlide.reducer,
-        user :userReducer.reducer
+        user:authSlide
+        
        
     }
     

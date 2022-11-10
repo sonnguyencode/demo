@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-left: 120px;
+  margin-top: 150px;
+}
+.container .nav-product {
+  text-decoration: none;
+  font-size: 23px;
+  padding: 0 0px 5px 20px;
+  color: #8e8e8e;
+  font-weight: 560;
+  width: 170px;
+  border-bottom: solid 2px;
+  line-height: 30px;
+}
+.container .active {
+  border-bottom: solid 2px;
+  color: black;
+}
+.container span {
+  margin-left: 21px;
+}/*# sourceMappingURL=productpage.css.map */

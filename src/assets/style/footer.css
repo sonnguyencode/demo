@@ -1,0 +1,32 @@
+.footer {
+  padding: 70px 0;
+  background-color: rgb(22, 35, 55);
+  font-size: 1.1rem;
+}
+.footer .grid {
+  display: grid;
+  grid-template-columns: 400px 300px 300px 300px;
+  margin-left: 125px;
+}
+.footer .footer__logo {
+  height: 88px;
+}
+.footer__about p {
+  margin-bottom: 2rem;
+  color: white;
+}
+.footer__title {
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: white;
+}
+.footer__content p {
+  margin-bottom: 1.25rem;
+  color: white;
+}
+.footer .link-footer {
+  text-decoration: none;
+  color: white;
+  font-family: serif;
+}/*# sourceMappingURL=footer.css.map */

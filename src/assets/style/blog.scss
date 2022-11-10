@@ -1,0 +1,41 @@
+.container-blog {
+    margin-top: 150px;
+    width: 90%;
+    margin-left: 5%;
+    border-bottom: solid 2px rgb(29, 23, 23);
+    .blog {
+    color: #484444;
+    
+    font-weight: 300;
+    line-height: 30px;
+    padding: 0 0 5px;
+    border-bottom: 2px solid #808080;
+
+    }
+    .img-blog {
+        object-fit: cover;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .praza {
+     font-size: 17px;
+    line-height: 1.42857;
+    color: #666666;
+    background-color: #ffffff;
+    overflow-x: hidden;
+        margin-bottom: 20px;
+        
+        
+        
+    }
+    .blog-p {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    
+
+
+}

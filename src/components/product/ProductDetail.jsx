@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import official from "../../assets/image/official.png";
 import "../../assets/style/productDetail.scss";
-import cartSlide from "../redux/shopCart/cartItemSlide";
+import cartSlide, { getTotals } from "../redux/shopCart/cartItemSlide";
+
 
 // import { Button } from "bootstrap";
 import { colors } from "../constans/color";
 // import cartItemSlide, { addToCart } from "../redux/shopCart/cartItemSlide";
 const ProductDetail = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const dispatch = useDispatch();
 
   const [data, setData] = useState(null);
@@ -32,7 +33,7 @@ const ProductDetail = () => {
 
       .then((data) => setData(data));
   }, [id]);
-  console.log("----data", data);
+  // console.log("----data", data);
   let navigate = useNavigate();
   const handleBackData = () => {
     navigate(-1);
@@ -45,10 +46,8 @@ const ProductDetail = () => {
         data:data,
         id:data.id
       }))
-      navigate("/product/cart");
+      navigate("/cart");
       
-    }else{
-      alert("Fail")
     }
     
   };
@@ -70,6 +69,9 @@ const ProductDetail = () => {
         data:data,
         id:data.id
       }))
+      && 
+        dispatch(getTotals())
+    
       alert("Success")
     }else{
       alert("Fail")

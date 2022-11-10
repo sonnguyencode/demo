@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/image/logo.webp";
 import "../../assets/style/header.scss";
@@ -6,7 +7,8 @@ import { mainNav } from "../constans/header";
 
 const Header = () => {
   const location = useLocation();
-  
+  const { cartQuantity } = useSelector((state) => state.cart);
+  // console.log("cartquantity",cartTotalQuantity);
 
   const renderLink = () => {
     return mainNav.map((item, i) => (
@@ -20,22 +22,36 @@ const Header = () => {
     ));
   };
   return (
-    
-      <div className="header">
+    <div className="header">
       <div className="navbar">{renderLink()}</div>
       <div className="header__logo">
         <img src={logo} alt="" />
       </div>
-      <div className="input-seach"><input  type="text" placeholder="Tìm kiếm sản phẩm" className="input"/></div>
+      <div className="input-seach">
+        <form>
+          <div className="pseudo-search">
+            <input type="text" placeholder="Tìm kiếm...."  />
+
+            <button className="fa fa-search" type="submit"></button>
+          </div>
+        </form>
+      </div>
       <div className="icon">
-        <i className="fa-solid fa-magnifying-glass"></i>
-        <Link className="login" to="/login">  <i className="fa-solid fa-user"></i></Link>
-        {/* <i className="fa-solid fa-user"></i> */}
-        <i className="fa-solid fa-cart-shopping"></i>
+       
+        <Link  className="login" to="/login">
+          {" "}
+          <i className="fa-solid fa-user"></i>
+        </Link>
+
+        <Link  to="/cart">
+          <i className="fa-solid fa-cart-shopping">
+            <div className="quantity-cart">
+              <span className="cart-quantity">{cartQuantity}</span>
+            </div>
+          </i>
+        </Link>
       </div>
     </div>
-    
-    
   );
 };
 

@@ -1,4 +1,4 @@
-export const mainNav = [
+export const blog = [
     {
       display: "Trang chủ",
       path: "/",

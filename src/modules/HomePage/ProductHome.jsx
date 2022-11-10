@@ -2,6 +2,7 @@ import React from "react";
 import sale from "../../assets/image/sale.webp";
 import "../../assets/style/producthome.scss";
 import useFetchData from "../../components/header/FechData";
+import { Loading } from "../../components/loading/Loading";
 import { Product } from "../../components/product/Product";
 const ProductHome = () => {
   const { data, loading } = useFetchData();
@@ -23,8 +24,8 @@ const ProductHome = () => {
   return (
     <div className="product">
       <h2 className="title-product">Sản phẩm bán chạy trong tuần</h2>
-      {loading && <div>Loading....</div>}
-      {!loading && (
+      {loading && <div><Loading/></div> }
+      {loading ?  <div><Loading/></div> : (
         <div className="container-product">
           <div className="list-product">{renderApi()} </div>
         </div>
