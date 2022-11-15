@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Cart from '../../cart/Cart';
 const initialState ={
     cartItems : localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem
         ("cartItems")) :[],
@@ -66,16 +65,5 @@ const cartSlide = createSlice({
     }
 })
     
-
-
-
-
-
-
-
-
-
-
-
 export const {addToCart,removeProduct,changeProduct,getTotals}=cartSlide.actions;
 export default cartSlide;

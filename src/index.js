@@ -3,15 +3,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom';
+import persistStore from 'redux-persist/es/persistStore';
+import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
 import ScrollToTop from './components/navigate/ScollToTop';
 
-import store from "../src/components/redux/shopCart/store";
 import { getTotals } from './components/redux/shopCart/cartItemSlide';
+import store from './components/redux/store';
 
 
 store.dispatch(getTotals())
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let persistor= persistStore(store)
 root.render(
   <React.StrictMode>
      
@@ -19,8 +22,12 @@ root.render(
     <ScrollToTop/>
    
     <Provider store={store}>
-    
+      <PersistGate persistor={persistor}>
+        
     <App />
+    
+
+      </PersistGate>
     
     </Provider>
     

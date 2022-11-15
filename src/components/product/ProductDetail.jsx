@@ -5,7 +5,6 @@ import official from "../../assets/image/official.png";
 import "../../assets/style/productDetail.scss";
 import cartSlide, { getTotals } from "../redux/shopCart/cartItemSlide";
 
-
 // import { Button } from "bootstrap";
 import { colors } from "../constans/color";
 // import cartItemSlide, { addToCart } from "../redux/shopCart/cartItemSlide";
@@ -39,45 +38,54 @@ const ProductDetail = () => {
     navigate(-1);
   };
   const gotoCart = () => {
-    if (check()){
-      dispatch(cartSlide.actions.addToCart({
-        color:color,
-        quantity:quantity,
-        data:data,
-        id:data.id
-      }))
+    if (check()) {
+      dispatch(
+        cartSlide.actions.addToCart({
+          color: color,
+          quantity: quantity,
+          data: data,
+          id: data.id,
+        })
+      );
       navigate("/cart");
-      
     }
-    
   };
   const check = () => {
     if (color === undefined) {
-        alert('Vui lòng chọn màu sắc!')
-        return false
+      alert("Vui lòng chọn màu sắc!");
+      return false;
     }
 
-    
-
-    return true
-}
-  const handleAddToCart = (data) => {
-    if (check()){
-      dispatch(cartSlide.actions.addToCart({
-        color:color,
-        quantity:quantity,
-        data:data,
-        id:data.id
-      }))
-      && 
-        dispatch(getTotals())
-    
-      alert("Success")
-    }else{
-      alert("Fail")
-    }
-    ;
+    return true;
   };
+  const handleAddToCart = (data) => {
+    if (check()) {
+      dispatch(
+        cartSlide.actions.addToCart({
+          color: color,
+          quantity: quantity,
+          data: data,
+          id: data.id,
+        })
+      ) && dispatch(getTotals());
+
+      alert("Success");
+    } else {
+      alert("Fail");
+    }
+  };
+
+  function changeImage() {
+    var container = document.getElementById("main-image");
+
+    container.src = data.image;
+  }
+
+  function changeNewImage() {
+    var container = document.getElementById("main-image");
+
+    container.src = official;
+  }
 
   return (
     <>
@@ -110,7 +118,7 @@ const ProductDetail = () => {
                         />
                       )}{" "}
                       <img
-                        onClick={changeImage}
+                        onClick={changeNewImage}
                         src={official}
                         width="70"
                       ></img>{" "}
@@ -211,11 +219,5 @@ const ProductDetail = () => {
     </>
   );
 };
-function changeImage(image) {
-  alert("aaa");
-  var container = document.getElementById("main-image");
-
-  container.src = [image];
-}
 
 export default ProductDetail;
