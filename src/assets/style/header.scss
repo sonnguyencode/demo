@@ -1,4 +1,11 @@
-.header {
+   *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+   
+   
+   .header {
     display: flex;
     width: 100%;
     height: 120px;
@@ -8,6 +15,10 @@
     top: 0;
     background-color: white;
     align-items: center;
+    .navbar {
+      flex-direction: row;
+    }
+  
     & .navbar .nav {
             text-decoration: none;
             color: black;
@@ -26,8 +37,13 @@
             }
             
         }
+        & i.fa-solid.fa-bars {
+          font-size: 35px;
+          margin-left: 10px;
+          display: none;
+      }
         & .header__logo {
-            margin-right: 29px;
+            margin-right: 194px;
             height: 120px;
             & img {
                 width: 100%;
@@ -110,11 +126,24 @@ form {
             color: black;
         }
         .input-seach {
-            margin-right: -280px;
+
+            // margin-right: -250px;
+            // margin: 110px;
+            
+            // position: fixed;
+            
+            // margin-top: 800px;
             .input {
                 border-radius: 5px;
                 line-height: 15px;
             }
+            .search-data{
+              width: 500px;
+              height: 300px;
+              background-color: rgb(158, 63, 63);
+            }
+           
+            
 
             
     
@@ -122,6 +151,40 @@ form {
         }
        
 
+}
+.search-data:hover {
+  background-color: rgb(205, 204, 204);
+}
+.container-search {
+  margin-top: 50px;
+  width: 400px;
+  // height: 500px;
+  background-color:rgb(242, 239, 239);
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+ 
+  .search-data {
+    display: flex;
+    margin-top: 7px ;
+    margin-left: 7px;
+    border-radius: 5px;
+    .title {
+      .s-price {
+        color: red;
+        margin-top: -10px;
+      }
+    }
+  }
+   .img-search {
+    width: 40px;
+    height: 40px;
+    margin-right: 7px;
+  }
+  
 }
 .avatar-user {
   width: 40px;
@@ -146,13 +209,14 @@ form {
   top: 90px;
   right: 50px;
   border-radius: 10px;
-  display: none;
+  
   
   & .flex{
     display: flex;
     margin-left: 7px;
     margin-top: 5px;
     border-bottom: solid 1px;
+    
 
   }
   & .name {
@@ -205,4 +269,40 @@ form {
   
 
 
+}
+@media screen and (max-width:480px) {
+  .navbar {
+    flex-direction: column !important;
+    margin-top: 270px;
+    margin-left: -40px;
+    display: none;
+    
+  }
+  .header__logo {
+    margin: 0 auto !important;
+    margin-right: 300px !important;
+  }
+  .input-seach {
+    margin: 0 !important;
+  }
+  i.fa-solid.fa-bars {
+    display:block !important;
+  }
+
+
+   
+}
+@media screen and (min-width:480px) {
+  .navbar {
+    flex-direction: row;
+    // display: block !important;
+  }
+  .input-seach {
+    margin-right: -288px ;
+    position: absolute;
+    right: 409px;
+  }
+  
+  
+  
 }

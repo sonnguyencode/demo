@@ -171,7 +171,7 @@ export const Cart = () => {
                             </p>
                             <hr className="my-2" />
                           </div>
-                          {cartItems?.map((item) => {
+                          {cartItems?.map((item,id) => {
                             totalPrice += item.data.price * item.quantity;
 
                             return (

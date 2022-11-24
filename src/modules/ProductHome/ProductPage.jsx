@@ -7,7 +7,7 @@ import navProduct from "../../components/constans/navProduct"
 
 export default function ProductPage() {
   const location = useLocation();
-  console.log(("location"),location);
+  // console.log(("location"),location);
 
   const renderProduct = () => {
     

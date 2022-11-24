@@ -201,7 +201,8 @@ const ProductDetail = () => {
                         Add to cart
                       </button>{" "}
                       <button
-                        className="btn btn-danger text-uppercase mr-2 px-4"
+                      className="btn btn-danger text-uppercase mr-2 px-4 "
+                      
                         onClick={() => handleAddToCart(data)}
                       >
                         Thêm vào giỏ hàng
